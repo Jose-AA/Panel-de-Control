@@ -222,6 +222,7 @@ if not df_datos.empty:
         value_col = "_VALOR_GENERADO"
 
 # Construir DataFrame de lookup con columnas normalizadas
+rows = []
 lookup_df = pd.DataFrame(columns=["concepto_norm", "valor_num", "concepto_raw"]) 
 if not df_datos.empty:
     for idx, row in df_datos.iterrows():
@@ -235,10 +236,9 @@ if not df_datos.empty:
             raw_val = 0.0
         cn = normalize_text(raw_concept)
         vn = parse_monetary(raw_val)
-        lookup_df = lookup_df.append(
-            {"concepto_norm": cn, "valor_num": vn, "concepto_raw": raw_concept},
-            ignore_index=True,
-        )
+        rows.append({"concepto_norm": cn, "valor_num": vn, "concepto_raw": raw_concept})
+    if rows:
+        lookup_df = pd.DataFrame(rows)
 
 
 # Función segura para obtener valor por concepto
