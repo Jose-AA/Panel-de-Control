@@ -89,7 +89,7 @@ gastos_fijos = obtener_valor(df_datos, "GASTOS FIJOS")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-  st.metric(label="FACTURACIÓN ACTUAL", value=f"${facturacion_actual:,.0f}")
+  st.metric(label="FACTURACIÓN MES EN CURSO", value=f"${facturacion_actual:,.0f}")
 with col2:
   st.metric(label="TOTAL POR COBRAR", value=f"${total_por_cobrar:,.0f}")
 with col3:
@@ -143,8 +143,8 @@ with col_left:
   )
 
   ax.set_xticks(x)
-  ax.set_xticklabels(dias, fontsize=11, fontweight="bold", color="#1e293b")
-  ax.tick_params(axis="y", labelsize=11, labelcolor="#1e293b")
+  ax.set_xticklabels(dias, fontsize=12, fontweight="bold", color="#1e293b")
+  ax.tick_params(axis="y", labelsize=12, labelcolor="#1e293b")
   ax.legend(fontsize=11, loc="upper right", frameon=True, facecolor="#f8fafc")
   ax.spines["top"].set_visible(False)
   ax.spines["right"].set_visible(False)
